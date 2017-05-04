@@ -44,6 +44,16 @@ vars.SpellData.VantusRunes = {
 	192774, -- Star Augur Etraeus
 	192775, -- Grand Magistrix Elisande
 	192776, -- Gul'dan
+	-- Tomb of Sargeras
+	237821, -- Goroth
+	237828, -- Demonic Inquisition
+	237824, -- Harjatan
+	237822, -- Sisters of the Moon
+	237826, -- Mistress Sassz'ine
+	237827, -- The Desolate Host
+	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
+	237820, -- Fallen Avatar
+	237825, -- Kil'jaeden
 }
 
 vars.SpellData.flasks = {
