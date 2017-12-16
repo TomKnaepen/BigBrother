@@ -54,6 +54,18 @@ vars.SpellData.VantusRunes = {
 	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
 	237820, -- Fallen Avatar
 	237825, -- Kil'jaeden
+		-- Antorus, the Burning Throne
+	250153, -- Garothi Worldbreaker
+	250156, -- Felhounds of Sargeras
+	250167, -- Antoran High Command
+	250160, -- Portal Keeper Hasabel
+	250150, -- Eonar the Lifebinder
+	250158, -- Imonar the Soulhunter
+	250148, -- Kin'garoth
+	250165, -- Varimathras
+	250163, -- The Coven of Shivarra
+	250144, -- Aggramar
+	250146, -- Argus the Unmaker
 }
 
 vars.SpellData.flasks = {
