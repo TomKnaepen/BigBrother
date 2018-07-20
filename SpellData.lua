@@ -21,6 +21,7 @@ vars.SpellData.AugmentRunes = {
 }
 
 vars.SpellData.VantusRunes = {
+	-- ADDON LEGION
 	-- Emerald Nightmare
 	192761, -- Nythndra
 	192765, -- Elerethe Renferal
@@ -54,6 +55,29 @@ vars.SpellData.VantusRunes = {
 	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
 	237820, -- Fallen Avatar
 	237825, -- Kil'jaeden
+	-- Antorus, the Burning Throne
+	250153, -- Garothi Worldbreaker
+	250156, -- Felhounds of Sargeras
+	250167, -- Antoran High Command
+	250160, -- Portal Keeper Hasabel
+	250150, -- Eonar the Lifebinder
+	250158, -- Imonar the Soulhunter
+	250148, -- Kin'garoth
+	250165, -- Varimathras
+	250163, -- The Coven of Shivarra
+	250144, -- Aggramar
+	250146, -- Argus the Unmaker
+	-- ADDON BFA  
+	-- Uldir
+	269276, -- Taloc the Corrupted
+	269405, -- Mother
+	269408, -- Fetid Devourer
+	269407, -- Zek'voz
+	-- Vectis No Id for now
+	269411, -- Zul
+	269412, -- Mythrax the Unraveler
+	269413, -- Ghunn
+	269409, -- Blood of Ghunn
 }
 
 vars.SpellData.flasks = {
@@ -121,6 +145,11 @@ vars.SpellData.flasks = {
 	188033,	-- Flask of the Seventh Demon
 	188034,	-- Flask of the Countless Armies
 	188035,	-- Flask of Ten Thousand Scars
+	-- Flask BFA
+	251839,	-- Flask of the Undertow
+	251838,	-- Flask of the Vast Horizon
+	251837,	-- Flask of Endless Fathoms
+	251836,	-- Flask of the Currents
 }
 
 vars.SpellData.elixirGuardian = {
