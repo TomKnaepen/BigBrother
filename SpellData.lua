@@ -116,13 +116,25 @@ vars.SpellData.VantusRunes = {
 	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
 	237820, -- Fallen Avatar
 	237825, -- Kil'jaeden
+	-- Antorus, the Burning Throne
+	250153, -- Garothi Worldbreaker
+	250156, -- Felhounds of Sargeras
+	250167, -- Antoran High Command
+	250160, -- Portal Keeper Hasabel
+	250150, -- Eonar the Lifebinder
+	250158, -- Imonar the Soulhunter
+	250148, -- Kin'garoth
+	250165, -- Varimathras
+	250163, -- The Coven of Shivarra
+	250144, -- Aggramar
+	250146, -- Argus the Unmaker
 	-- Uldir
 	269276, -- Taloc
 	269405, -- MOTHER
 	269407, -- Zek'vohj
 	269408, -- Fetid Devourer
 	269409, -- Blood of G'huun
-    269411, -- Zul
+	269411, -- Zul
 	269412, -- Mythrax
 	269413, -- G'huun
 }
@@ -293,6 +305,7 @@ vars.SpellData.ccspells = {
 	6358, -- Seduction
 	115268, -- Mesmerize
 	339, -- Entangling Roots
+	2637, -- Hibernate
 	115078, -- Paralysis (Monk)
 	122224, -- Impaling Spear (HoF: Wind Lord Mel'jarak)
 	122220, -- Impaling Spear (HoF: Wind Lord Mel'jarak)
