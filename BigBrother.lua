@@ -8,6 +8,7 @@ Additional thanks:
 * Ahti and the other members of Cohors Praetoria (Vek'nilash US) for beta testing new versions of the mod
 * Thanks to vhaarr for helping Cryect out with reducing the length of code
 * Thanks to pastamancer for fixing the issues with Supreme Power Flasks and pointing in right direction for others
+* Thanks to rawillkill for the Fix for BFA postet on curse
 * Window Resizing code based off the dragbar from violation
 * And also thanks to all those in #wowace for the various suggestions
 ]]
