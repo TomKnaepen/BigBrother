@@ -11,17 +11,78 @@ vars.SpellData.foods = {
 	43730, -- Electrified
 	43722, -- Enlightened
 	43763, -- Food (eating)
+	-- Legion
+	225600, -- Versatility
+	-- BFA
+	--257410, -- Critical Strike 16
+	--257408, -- Critical Strike 53
+	
+	--257422, -- Versatility 12
+	--257424, -- Versatility 16
+	
+	--259454, -- Agility 22
+	--259448, -- Agility 75
+	
+	--259452, -- Strength 12
+	--259456, -- Strength 22
+	
+	--259449, -- Intellect 75
+	--259455, -- Intellect 100
+
+	-- 262571, -- Stamina 11 - 15 min buff (?)
+	--259453, -- Stamina 26
+	--259457, -- Stamina 150
+	
+	--257418, -- Mastery 12
+	--257420, -- Mastery 70
+	
+	--257415, -- Haste 16
+	--257413, -- Haste 53
+	
+	-- 267948, -- Warfront shit 
+	-- 267949, -- Warfront shit
+	-- 267950, -- Warfront shit
+	-- 267951, -- Warfront shit
+	-- 272817, -- grimestone stew
+}
+
+vars.SpellData.CombatBuffSplit = {
+    intellect = {
+		1459,  -- Arcane Intellect
+		264760, -- Intellect 8%	
+	},
+	stamina = {
+		21562, -- Power Word: Fortitude
+		264764, -- Stamina 8%
+	},
+	attackpower = {
+		6673,  -- Battle Shout
+		264761, -- Attack Power 8%	
+	},
+}
+
+vars.SpellData.CombatBuffs = {
+    1459,  -- Arcane Intellect
+	264760, -- Intellect 8%
+	
+	21562, -- Power Word: Fortitude
+	264764, -- Stamina 8%
+
+	6673,  -- Battle Shout
+	264761, -- Attack Power 8%
 }
 
 vars.SpellData.AugmentRunes = {
 	175439, -- Stout Augment Rune (Warlords)
 	175457, -- Focus Augment Rune (Warlords)
 	175456, -- Hyper Augment Rune (Warlords)
+	-- LEGION
 	224001, -- Defiled Augment Rune (Legion)
+	-- BFA
+	270058, -- Battle-Scarred Augment Rune (BFA)
 }
 
 vars.SpellData.VantusRunes = {
-	-- ADDON LEGION
 	-- Emerald Nightmare
 	192761, -- Nythndra
 	192765, -- Elerethe Renferal
@@ -55,29 +116,15 @@ vars.SpellData.VantusRunes = {
 	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
 	237820, -- Fallen Avatar
 	237825, -- Kil'jaeden
-	-- Antorus, the Burning Throne
-	250153, -- Garothi Worldbreaker
-	250156, -- Felhounds of Sargeras
-	250167, -- Antoran High Command
-	250160, -- Portal Keeper Hasabel
-	250150, -- Eonar the Lifebinder
-	250158, -- Imonar the Soulhunter
-	250148, -- Kin'garoth
-	250165, -- Varimathras
-	250163, -- The Coven of Shivarra
-	250144, -- Aggramar
-	250146, -- Argus the Unmaker
-	-- ADDON BFA  
 	-- Uldir
-	269276, -- Taloc the Corrupted
-	269405, -- Mother
+	269276, -- Taloc
+	269405, -- MOTHER
+	269407, -- Zek'vohj
 	269408, -- Fetid Devourer
-	269407, -- Zek'voz
-	-- Vectis No Id for now
-	269411, -- Zul
-	269412, -- Mythrax the Unraveler
-	269413, -- Ghunn
-	269409, -- Blood of Ghunn
+	269409, -- Blood of G'huun
+    269411, -- Zul
+	269412, -- Mythrax
+	269413, -- G'huun
 }
 
 vars.SpellData.flasks = {
@@ -146,10 +193,10 @@ vars.SpellData.flasks = {
 	188034,	-- Flask of the Countless Armies
 	188035,	-- Flask of Ten Thousand Scars
 	-- Flask BFA
-	251839,	-- Flask of the Undertow
-	251838,	-- Flask of the Vast Horizon
-	251837,	-- Flask of Endless Fathoms
-	251836,	-- Flask of the Currents
+	251839, -- Flask of the Undertow (Str)
+	251838, -- Flask of the Vast Horizon (Sta)
+	251837, -- Flask of the Endless Fathoms (Int)
+	251836, -- Flask of the Currents (Agi)
 }
 
 vars.SpellData.elixirGuardian = {
