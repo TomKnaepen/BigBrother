@@ -922,19 +922,19 @@ local function activate(self, oldLib, oldDeactivate)
 		if not self.postInit then
 			local function func()
 				self.postInit = true
-				self:TriggerEvent("AceEvent_FullyInitialized")
+				--self:TriggerEvent("AceEvent_FullyInitialized")
 				if self.registry["CHAT_MSG_CHANNEL_NOTICE"] and self.registry["CHAT_MSG_CHANNEL_NOTICE"][self] then
 					self:UnregisterEvent("CHAT_MSG_CHANNEL_NOTICE")
 				end
-				if self.registry["MEETINGSTONE_CHANGED"] and self.registry["MEETINGSTONE_CHANGED"][self] then
-					self:UnregisterEvent("MEETINGSTONE_CHANGED")
-				end
+				--if self.registry["MEETINGSTONE_CHANGED"] and self.registry["MEETINGSTONE_CHANGED"][self] then
+					--self:UnregisterEvent("MEETINGSTONE_CHANGED")
+				--end
 			end
 			registeringFromAceEvent = true
-			self:RegisterEvent("MEETINGSTONE_CHANGED", func, true)
+			--self:RegisterEvent("MEETINGSTONE_CHANGED", func, true)
 			self:RegisterEvent("CHAT_MSG_CHANNEL_NOTICE", func, true)
 
-			self:ScheduleEvent("AceEvent_FullyInitialized", func, 10)
+			--self:ScheduleEvent("AceEvent_FullyInitialized", func, 10)
 			registeringFromAceEvent = nil
 		end
 	end

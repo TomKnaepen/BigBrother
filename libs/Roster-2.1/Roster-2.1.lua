@@ -94,7 +94,8 @@ local function external(self, major, instance)
 		if instance:IsFullyInitialized() then
 			self:AceEvent_FullyInitialized()
 		else
-			self:RegisterEvent("AceEvent_FullyInitialized")
+		    self:AceEvent_FullyInitialized()
+			-- self:RegisterEvent("AceEvent_FullyInitialized")
 		end
 	end
 end
