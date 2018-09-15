@@ -12,34 +12,34 @@ vars.SpellData.foods = {
 	43722, -- Enlightened
 	43763, -- Food (eating)
 	-- Legion
-	225600, -- Versatility
+	--225600, -- Versatility
 	-- BFA
-	--257410, -- Critical Strike 16
-	--257408, -- Critical Strike 53
+	257410, -- Critical Strike 16
+	257408, -- Critical Strike 53
 	
-	--257422, -- Versatility 12
-	--257424, -- Versatility 16
+	257422, -- Versatility 12
+	257424, -- Versatility 16
 	
-	--259454, -- Agility 22
-	--259448, -- Agility 75
+	259454, -- Agility 22
+	259448, -- Agility 75
 	
-	--259452, -- Strength 12
-	--259456, -- Strength 22
+	259452, -- Strength 12
+	259456, -- Strength 22
 	
-	--259449, -- Intellect 75
-	--259455, -- Intellect 100
+	259449, -- Intellect 75
+	259455, -- Intellect 100
 
 	-- 262571, -- Stamina 11 - 15 min buff (?)
-	--259453, -- Stamina 26
-	--259457, -- Stamina 150
+	259453, -- Stamina 26
+	259457, -- Stamina 150
 	
-	--257418, -- Mastery 12
-	--257420, -- Mastery 70
+	257418, -- Mastery 12
+	257420, -- Mastery 70
 	
-	--257415, -- Haste 16
-	--257413, -- Haste 53
+	257415, -- Haste 16
+	257413, -- Haste 53
 	
-	-- 267948, -- Warfront shit 
+	-- 267948, -- Warfront shit
 	-- 267949, -- Warfront shit
 	-- 267950, -- Warfront shit
 	-- 267951, -- Warfront shit
@@ -90,7 +90,7 @@ vars.SpellData.VantusRunes = {
 	192762, -- Il'gynoth
 	192763, -- Dragons of Nightmare
 	192766, -- Cenarius
-	192764, -- Xavius
+	-192764, -- Xavius
 	-- Trial of Valor
 	229174, -- Odyn
 	229175, -- Guarm
@@ -116,25 +116,13 @@ vars.SpellData.VantusRunes = {
 	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
 	237820, -- Fallen Avatar
 	237825, -- Kil'jaeden
-	-- Antorus, the Burning Throne
-	250153, -- Garothi Worldbreaker
-	250156, -- Felhounds of Sargeras
-	250167, -- Antoran High Command
-	250160, -- Portal Keeper Hasabel
-	250150, -- Eonar the Lifebinder
-	250158, -- Imonar the Soulhunter
-	250148, -- Kin'garoth
-	250165, -- Varimathras
-	250163, -- The Coven of Shivarra
-	250144, -- Aggramar
-	250146, -- Argus the Unmaker
 	-- Uldir
 	269276, -- Taloc
 	269405, -- MOTHER
 	269407, -- Zek'vohj
 	269408, -- Fetid Devourer
 	269409, -- Blood of G'huun
-	269411, -- Zul
+    269411, -- Zul
 	269412, -- Mythrax
 	269413, -- G'huun
 }
@@ -204,6 +192,7 @@ vars.SpellData.flasks = {
 	188033,	-- Flask of the Seventh Demon
 	188034,	-- Flask of the Countless Armies
 	188035,	-- Flask of Ten Thousand Scars
+	242551, -- Repurposed Fel Focuser
 	-- Flask BFA
 	251839, -- Flask of the Undertow (Str)
 	251838, -- Flask of the Vast Horizon (Sta)
@@ -305,7 +294,6 @@ vars.SpellData.ccspells = {
 	6358, -- Seduction
 	115268, -- Mesmerize
 	339, -- Entangling Roots
-	2637, -- Hibernate
 	115078, -- Paralysis (Monk)
 	122224, -- Impaling Spear (HoF: Wind Lord Mel'jarak)
 	122220, -- Impaling Spear (HoF: Wind Lord Mel'jarak)
