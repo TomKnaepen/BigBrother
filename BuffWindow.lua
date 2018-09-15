@@ -8,9 +8,9 @@ local GetSpellInfo, UnitBuff, UnitIsConnected, UnitIsDeadOrGhost =
       GetSpellInfo, UnitBuff, UnitIsConnected, UnitIsDeadOrGhost
 
 -- Change here and in BigBrother.lua
-local spellidmin = 250000 -- minimum allowed spellid in this addon (bfa: 250000)
+local spellidmin = 250000 -- minimum allowed spellid in this addon (bfa is > 250000)
 
-local foodmin = 41 -- minimum food stat level to allow
+local foodmin = 40 -- minimum food stat level to allow
 
 local BarHeight=18
 local BarWidth=250
