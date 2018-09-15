@@ -1382,6 +1382,11 @@ local playersrcmask = bit.bor(bit.bor(COMBATLOG_OBJECT_TYPE_PLAYER,
     COMBATLOG_OBJECT_TYPE_PET),
 COMBATLOG_OBJECT_TYPE_GUARDIAN) -- totems
 
+local wasRemoved = false
+local savedRemoval = 202849 --Dummy spell
+local savedDST = nil
+local savedSRC = nil
+
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 function addon:COMBAT_LOG_EVENT_UNFILTERED()
     local timestamp, subevent, hideCaster,
@@ -1420,10 +1425,27 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED()
     -- debug stuff here
     -- and spellname == "Taunt"
     if addon.debug then
+        --[[
         print((spellname or "nil")..":"..(spellID or "nil")..":"..(subevent or "nil")..":"..
             (srcname or "nil")..":"..(srcGUID or "nil")..":"..(srcflags or "nil")..":"..(srcRaidFlags or "nil")..":"..
             (dstname or "nil")..":"..(dstGUID or "nil")..":"..(dstflags or "nil")..":"..(dstRaidFlags or "nil")..":"..
         "is_playersrc:"..((is_playersrc and "true") or "false")..":"..(extraspellID or "nil"))
+        ]]--
+    end
+
+    -- SPELL_AURA_REMOVED fixed (I hope so)
+    if wasRemoved then
+        wasRemoved = false
+        local isDST = (savedDST == DST)
+        local isSRC = (savedSRC == SRC)
+
+        if isDST and isSRC then
+            spam = L["%s on %s broken by %s's %s"]:format(SPELL(savedRemoval), DST, SRC, SPELL(spellID))
+            sendspam(spam, nil, srcname)
+        else
+            spam = L["%s on %s broken for unknown reasons. (Destination was: %s and Source was: %s)"]:format(SPELL(savedRemoval), savedDST, tostring(isDST), tostring(isSRC))
+            sendspam(spam, nil, nil)
+        end
     end
 
     if subevent == "SPELL_SUMMON" and is_playersrc then
@@ -1580,7 +1602,14 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED()
              elseif expired then
                  spam = (L["%s on %s expired"]):format(SPELL(spellID), DST)
              elseif subevent == "SPELL_AURA_REMOVED" then
-                 spam = (L["%s on %s removed for unknown reasons. (%s)"]):format(SPELL(spellID), DST, SRC)
+                 --saving data for next combat log entry. maybe we're getting the right one
+                 wasRemoved = true
+                 savedRemoval = spellID
+                 savedDST = DST
+                 savedSRC = SRC
+                 --spam = (L["%s on %s removed for unknown reasons. (%s)"]):format(SPELL(spellID), DST, SRC)
+             else
+                 print("What happened?")
              end
 
                 -- Should we throttle the spam?
