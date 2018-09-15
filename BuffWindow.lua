@@ -398,18 +398,18 @@ function BuffWindow_Functions:OnEnterBuff()
         self.remTime = math.floor((select(6,AuraUtil.FindAuraByName(self.BuffName, self.unit))-GetTime())/60)
 
         if self.remTime < 0 then
-            self.remTime = "unknown"
+            GameTooltip:AddLine("unknown time remaining",1,1,1)
         elseif self.remTime > 60 then
             self.remTime = math.floor(self.remTime/60)
             if self.remTime == 1 then
-                GameTooltip:AddLine(self.remTime .. " hour remaining")
+                GameTooltip:AddLine(self.remTime .. " hour remaining",1,1,1)
             else
-                GameTooltip:AddLine(self.remTime .. " hours remaining")
+                GameTooltip:AddLine(self.remTime .. " hours remaining",1,1,1)
             end
         elseif self.remTime == 1 then
-            GameTooltip:AddLine(self.remTime .. " minute remaining")
+            GameTooltip:AddLine(self.remTime .. " minute remaining",1,1,1)
         else
-            GameTooltip:AddLine(self.remTime .. " minutes remaining")
+            GameTooltip:AddLine(self.remTime .. " minutes remaining",1,1,1)
         end
     end
 
@@ -788,9 +788,11 @@ function BuffWindow_UpdateWindow()
                 if Player.buff[j] then
                     --check if a buff is from this addon
                     dimmthis = true
-                    if Player.buff[j][3]>spellidmin then
-                        dimmthis = false
-                    end
+					if tonumber(Player.buff[j][3]) ~= nil then
+						if Player.buff[j][3]>spellidmin then
+							dimmthis = false
+						end
+					end;
 
                     Rows[i+roffset]:SetBuffIcon(j,Player.buff[j][2],dimmthis)
                     Rows[i+roffset]:SetBuffName(j,Player.buff[j][1], Player.unit)
