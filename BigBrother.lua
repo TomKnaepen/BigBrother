@@ -1385,7 +1385,6 @@ COMBATLOG_OBJECT_TYPE_GUARDIAN) -- totems
 local wasRemoved = false
 local savedRemoval = 202849 --Dummy spell
 local savedDST = nil
-local savedSRC = nil
 
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 function addon:COMBAT_LOG_EVENT_UNFILTERED()
@@ -1437,13 +1436,12 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED()
     if wasRemoved then
         wasRemoved = false
         local isDST = (savedDST == DST)
-        local isSRC = (savedSRC == SRC)
 
-        if isDST and isSRC then
+        if isDST then
             spam = L["%s on %s broken by %s's %s"]:format(SPELL(savedRemoval), DST, SRC, SPELL(spellID))
             sendspam(spam, nil, srcname)
         else
-            spam = L["%s on %s broken for unknown reasons. (Destination was: %s and Source was: %s)"]:format(SPELL(savedRemoval), savedDST, tostring(isDST), tostring(isSRC))
+            spam = L["%s on %s broken for unknown reasons. (Destination was %s not %s)"]:format(SPELL(savedRemoval), savedDST, DST, savedDST)
             sendspam(spam, nil, nil)
         end
     end
@@ -1606,7 +1604,6 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED()
                  wasRemoved = true
                  savedRemoval = spellID
                  savedDST = DST
-                 savedSRC = SRC
                  --spam = (L["%s on %s removed for unknown reasons. (%s)"]):format(SPELL(spellID), DST, SRC)
              else
                  print("What happened?")
