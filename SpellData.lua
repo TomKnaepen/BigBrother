@@ -90,7 +90,7 @@ vars.SpellData.VantusRunes = {
 	192762, -- Il'gynoth
 	192763, -- Dragons of Nightmare
 	192766, -- Cenarius
-	-192764, -- Xavius
+	192764, -- Xavius
 	-- Trial of Valor
 	229174, -- Odyn
 	229175, -- Guarm
