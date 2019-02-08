@@ -12,7 +12,7 @@ vars.L = setmetatable({},{
 })
 
 Ld["A new version of Big Brother (%s) is available for download at:"] = "A new version of Big Brother (%s) is available for download at:"
-Ld["A quick report that shows who does not have flasks, elixirs or food."] = "A quick report that shows who does not have flasks, elixirs or food."
+Ld["A report that shows who does not have flasks, elixirs or food."] = "A report that shows who does not have flasks, elixirs or food."
 Ld["Armor"] = "Armor"
 Ld["Augment Runes"] = "Augment Runes"
 Ld["Auras"] = "Auras"
@@ -21,6 +21,7 @@ Ld["Battleground"] = "Battleground"
 Ld["BuffCheck"] = "BuffCheck"
 Ld["|cffff8040Left Click|r to toggle the buff window"] = "|cffff8040Left Click|r to toggle the buff window"
 Ld["|cffff8040Right Click|r for menu"] = "|cffff8040Right Click|r for menu"
+Ld["Check"] = "Check"
 Ld["Checks"] = "Checks"
 Ld["Checks for flasks, elixirs and food buffs."] = "Checks for flasks, elixirs and food buffs."
 Ld["Click to add this event to chat"] = "Click to add this event to chat"
@@ -127,7 +128,7 @@ La["Vantus Rune"] = "Vantus Rune"
 
 if locale == "frFR" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "Une nouvelle version de Big Brother (%s) est disponible au téléchargement à :" -- Needs review
-La["A quick report that shows who does not have flasks, elixirs or food."] = "Un rapport rapide qui indique les personnes sans flacon, élixir ou buff de nourriture."
+La["A report that shows who does not have flasks, elixirs or food."] = "Un rapport rapide qui indique les personnes sans flacon, élixir ou buff de nourriture."
 La["Armor"] = "Armure" -- Needs review
 -- La["Augment Runes"] = ""
 La["Auras"] = "Auras" -- Needs review
@@ -239,7 +240,7 @@ La["Whisper"] = "Chuchoter"
 
 elseif locale == "deDE" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "Eine neue Version von Big Brother (%s) ist zum Download verfügbar auf:"
-La["A quick report that shows who does not have flasks, elixirs or food."] = "Eine Schnellprüfung, wer keine Fläschchen, Elixiere oder Essen-Buffs hat."
+La["A report that shows who does not have flasks, elixirs or food."] = "Eine Schnellprüfung, wer keine Fläschchen, Elixiere oder Essen-Buffs hat."
 La["Armor"] = "Rüstung"
 La["Augment Runes"] = "Verstärkungsrunen"
 La["Auras"] = "Auren"
@@ -351,7 +352,7 @@ La["Whisper"] = "Flüstern"
 
 elseif locale == "koKR" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "새로운 버젼(%s)의 Big Brother을 사용할수 있습니다. 아래 페이지에서 내려받으세요." -- Needs review
-La["A quick report that shows who does not have flasks, elixirs or food."] = "영약/비약/음식 버프가 없는 사람을 간단히 확인합니다."
+La["A report that shows who does not have flasks, elixirs or food."] = "영약/비약/음식 버프가 없는 사람을 간단히 확인합니다."
 La["Armor"] = "방어" -- Needs review
 -- La["Augment Runes"] = ""
 La["Auras"] = "오라" -- Needs review
@@ -464,7 +465,7 @@ La["Whisper"] = "귓속말"
 
 elseif locale == "esMX" then do end
 -- La["A new version of Big Brother (%s) is available for download at:"] = ""
--- La["A quick report that shows who does not have flasks, elixirs or food."] = ""
+-- La["A report that shows who does not have flasks, elixirs or food."] = ""
 -- La["Armor"] = ""
 -- La["Augment Runes"] = ""
 -- La["Auras"] = ""
@@ -576,7 +577,7 @@ elseif locale == "esMX" then do end
 
 elseif locale == "ruRU" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "Доступна для скачивания новая версия Big Brother (%s):" -- Needs review
-La["A quick report that shows who does not have flasks, elixirs or food."] = "Быстрая проверка на наличие баффов от настоев, эликсиров или еды."
+La["A report that shows who does not have flasks, elixirs or food."] = "Быстрая проверка на наличие баффов от настоев, эликсиров или еды."
 La["Armor"] = "Броня" -- Needs review
 -- La["Augment Runes"] = ""
 La["Auras"] = "Ауры" -- Needs review
@@ -688,7 +689,7 @@ La["Whisper"] = "Шепнуть"
 
 elseif locale == "zhCN" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "新版本的 Big Brother (%s) 已经可以下载：" -- Needs review
-La["A quick report that shows who does not have flasks, elixirs or food."] = "快速报告谁没有合剂，药剂，及食物效果"
+La["A report that shows who does not have flasks, elixirs or food."] = "快速报告谁没有合剂，药剂，及食物效果"
 La["Armor"] = "护甲" -- Needs review
 -- La["Augment Runes"] = ""
 La["Auras"] = "Buff/Debuff" -- Needs review
@@ -800,7 +801,7 @@ La["Whisper"] = "密语"
 
 elseif locale == "esES" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "Una nueva versión de Big Brother ( %s ) está disponible para su descarga en:"
-La["A quick report that shows who does not have flasks, elixirs or food."] = "Un informe rápido que muestra quién no tiene frasco, elixir o comida."
+La["A report that shows who does not have flasks, elixirs or food."] = "Un informe rápido que muestra quién no tiene frasco, elixir o comida."
 La["Armor"] = "Armadura"
 -- La["Augment Runes"] = ""
 La["Auras"] = "Auras"
@@ -912,7 +913,7 @@ La["Whisper"] = "Susurrar"
 
 elseif locale == "zhTW" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "新版本的Big Brother(%s)已可於: 下載"
-La["A quick report that shows who does not have flasks, elixirs or food."] = "快速檢查回報誰沒有藥水/藥劑/食物 buffs"
+La["A report that shows who does not have flasks, elixirs or food."] = "快速檢查回報誰沒有藥水/藥劑/食物 buffs"
 La["Armor"] = "護甲"
 -- La["Augment Runes"] = ""
 La["Auras"] = "光環"
@@ -1024,7 +1025,7 @@ La["Whisper"] = "密語"
 
 elseif locale == "ptBR" then do end
 La["A new version of Big Brother (%s) is available for download at:"] = "Uma nova versão do Big Brother (%s) está disponível para download em:"
-La["A quick report that shows who does not have flasks, elixirs or food."] = "Um relatório rápido que mostra quem não tem frasco, elixir ou comida."
+La["A report that shows who does not have flasks, elixirs or food."] = "Um relatório rápido que mostra quem não tem frasco, elixir ou comida."
 La["Armor"] = "Armadura"
 -- La["Augment Runes"] = ""
 -- La["Auras"] = ""

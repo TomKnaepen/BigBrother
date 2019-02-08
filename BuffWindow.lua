@@ -7,6 +7,11 @@ local bit, math, date, string, select, table, time, tonumber, unpack, wipe, pair
 local GetSpellInfo, UnitBuff, UnitIsConnected, UnitIsDeadOrGhost =
       GetSpellInfo, UnitBuff, UnitIsConnected, UnitIsDeadOrGhost
 
+-- Change here and in BigBrother.lua
+local spellidmin = 250000 -- minimum allowed spellid in this addon (bfa is > 250000)
+
+local foodmin = 40 -- minimum food stat level to allow
+
 local BarHeight=18
 local BarWidth=250
 local WindowWidth=BarWidth+32
@@ -93,7 +98,6 @@ for i,v in ipairs(vars.SpellData.foods) do
 	table.insert(vars.Foodbuffs,  { spellData(v) })
 end
 
-local foodmin = 74 -- minimum food stat level to allow
 local scanfoodcache = {}
 local scantt = CreateFrame("GameTooltip", "BigBrotherScanTooltip", UIParent, "GameTooltipTemplate")
 local function scanfood(spellid)
@@ -110,9 +114,9 @@ local function scanfood(spellid)
   for v in string.gmatch(line, "%d+") do  -- assume largest number in tooltip is the statval
      statval = math.max(statval,tonumber(v))
   end
-  if statval >= 100 and string.find(line, ITEM_MOD_STAMINA_SHORT) then -- normalize for MoP stam bonus
-     statval = statval * 300 / 450
-  end
+  --if statval >= 100 and string.find(line, ITEM_MOD_STAMINA_SHORT) then -- normalize for MoP stam bonus
+    --  statval = statval * 300 / 450
+  --end
   --print(spellid, f[1], statval)
   if statval >= foodmin or
      spellid == 66623 then -- bountiful feast
@@ -320,7 +324,7 @@ function BuffWindow_Functions:CreateBuffRow(parent, xoffset, yoffset)
 	      local status = guid and BigBrother.unitstatus[guid]
 	      if status then
 	        GameTooltip:SetOwner(self, "ANCHOR_TOPRIGHT")
-		GameTooltip:ClearLines();
+		    GameTooltip:ClearLines();
 	        local gotone
 		for k,v in pairs(status) do
 		  if k ~= "highlight" then
@@ -361,6 +365,9 @@ function BuffWindow_Functions:CreateBuffRow(parent, xoffset, yoffset)
 		Row.Buff[i]:SetScript("OnEnter", BuffWindow_Functions.OnEnterBuff)
 		Row.Buff[i]:SetScript("OnLeave", BuffWindow_Functions.OnLeaveBuff)
 		Row.Buff[i]:EnableMouse(true)
+		
+		Row.Buff[i].ID = nil
+        Row.Buff[i].remTime = 0
 
 		Row.Buff[i]:Show()
 	end
@@ -383,10 +390,27 @@ function BuffWindow_Functions:OnEnterBuff()
 	    GameTooltip:AddLine(line)
 	  end
 	else
-		print(self.BuffName)
-		print(self.unit)
-		print('here')
-	  -- GameTooltip:SetUnitBuff(self.unit, self.BuffName)
+        --show buff by id
+        self.ID = select(10,AuraUtil.FindAuraByName(self.BuffName, self.unit))
+        GameTooltip:AddSpellByID(self.ID)
+
+        --show remaining time in minutes
+        self.remTime = math.floor((select(6,AuraUtil.FindAuraByName(self.BuffName, self.unit))-GetTime())/60)
+
+        if self.remTime < 0 then
+            GameTooltip:AddLine("unknown time remaining",1,1,1)
+        elseif self.remTime > 60 then
+            self.remTime = math.floor(self.remTime/60)
+            if self.remTime == 1 then
+                GameTooltip:AddLine(self.remTime .. " hour remaining",1,1,1)
+            else
+                GameTooltip:AddLine(self.remTime .. " hours remaining",1,1,1)
+            end
+        elseif self.remTime == 1 then
+            GameTooltip:AddLine(self.remTime .. " minute remaining",1,1,1)
+        else
+            GameTooltip:AddLine(self.remTime .. " minutes remaining",1,1,1)
+        end
     end
 
 	GameTooltip:Show()
@@ -761,13 +785,21 @@ function BuffWindow_UpdateWindow()
 			local Player=PlayerList[i+offset]
 			Rows[i+roffset]:SetPlayer(Player.name,Player.class,Player.unit)
 			for j=1,TotalBuffs do
-				if Player.buff[j] then
-					Rows[i+roffset]:SetBuffIcon(j,Player.buff[j][2],Player.buff[j][4])
-					Rows[i+roffset]:SetBuffName(j,Player.buff[j][1], Player.unit)
-					Rows[i+roffset]:SetBuffValue(j,true)
-				else
-					Rows[i+roffset]:SetBuffValue(j,false)
-				end
+                if Player.buff[j] then
+                    --check if a buff is from this addon
+                    dimmthis = true
+					if tonumber(Player.buff[j][3]) ~= nil then
+						if Player.buff[j][3]>spellidmin then
+							dimmthis = false
+						end
+					end;
+
+                    Rows[i+roffset]:SetBuffIcon(j,Player.buff[j][2],dimmthis)
+                    Rows[i+roffset]:SetBuffName(j,Player.buff[j][1], Player.unit)
+                    Rows[i+roffset]:SetBuffValue(j,true)
+                else
+                    Rows[i+roffset]:SetBuffValue(j,false)
+                end
 			end
 			Rows[i+roffset]:Show()
 		else

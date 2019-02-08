@@ -1,14 +1,13 @@
 --[[
 BigBrother
 Concept and original mod: Cryect
-Currently maintained by: oscarucb
+Currently maintained by: JackXC
 Additional thanks:
 * All of the translators
 * Other wowace developers for assistance and bug fixes
 * Ahti and the other members of Cohors Praetoria (Vek'nilash US) for beta testing new versions of the mod
 * Thanks to vhaarr for helping Cryect out with reducing the length of code
 * Thanks to pastamancer for fixing the issues with Supreme Power Flasks and pointing in right direction for others
-* Thanks to rawillkill for the Fix for BFA postet on curse
 * Window Resizing code based off the dragbar from violation
 * And also thanks to all those in #wowace for the various suggestions
 ]]
@@ -19,6 +18,9 @@ if AceLibrary:HasInstance("FuBarPlugin-2.0") then
 else
     BigBrother = AceLibrary("AceAddon-2.0"):new("AceConsole-2.0", "AceDB-2.0", "AceEvent-2.0")
 end
+
+-- Change here and in BigBrother.lua
+local spellidmin = 250000 -- minimum allowed spellid in this addon (bfa: 250000)
 
 -- BigBrother.debug = true
 
@@ -132,7 +134,7 @@ local options = {
     type = 'group',
     handler = BigBrother,
     args = {
-        flaskcheck = {
+        --[[flaskcheck = {
             name = L["Flask Check"],
             desc = L["Checks for flasks, elixirs and food buffs."],
             type = 'group',
@@ -190,10 +192,10 @@ local options = {
                     passValue = "WHISPER",
                 }
             }
-        },
+        },]]--
         quickcheck = {
-            name = L["Quick Check"],
-            desc = L["A quick report that shows who does not have flasks, elixirs or food."],
+            name = L["Check"],
+            desc = L["A report that shows who does not have flasks, elixirs or food."],
             type = 'group',
             args = {
                 self = {
@@ -637,10 +639,11 @@ local options = {
             }
         },
         buffcheck = {
-            name = L["BuffCheck"],
-            desc = L["Pops up a window to check various raid/elixir buffs (drag the bottom to resize)."],
+            name = L["QuickCheck"],
+            desc = L["QuickCheck"],
             type = 'execute',
-            func = function() BigBrother:ToggleBuffWindow() end,
+            func = 'QuickCheck',
+            passValue = "SELF",
         }
     }
 }
@@ -872,9 +875,12 @@ function addon:ConsumableCheck(Where, Full)
     -- Print the flask list and determine who has no flask
     for i, v in ipairs(vars.Flasks) do
         local spellName, spellIcon, spellId = unpack(v)
-        local t = self:BuffPlayerList(spellId, MissingFlaskList)
-        if Full and self.db.profile.CheckFlasks then
-            self:SendMessageList(spellName, t, Where)
+        --check if a buff is from this addon
+        if spellId>spellidmin then
+            local t = self:BuffPlayerList(spellId, MissingFlaskList)
+            if Full and self.db.profile.CheckFlasks then
+                self:SendMessageList(spellName, t, Where)
+            end
         end
     end
 
@@ -882,9 +888,12 @@ function addon:ConsumableCheck(Where, Full)
     if self.db.profile.CheckElixirs then
         for i, v in ipairs(vars.Elixirs) do
             local spellName, spellIcon, spellId = unpack(v)
-            local t = self:BuffPlayerList(spellId, MissingFlaskList)
-            if Full then
-                self:SendMessageList(spellName, t, Where)
+            --check if a buff is from this addon
+            if spellId>spellidmin then
+                local t = self:BuffPlayerList(spellId, MissingFlaskList)
+                if Full then
+                    self:SendMessageList(spellName, t, Where)
+                end
             end
         end
 
@@ -894,8 +903,12 @@ function addon:ConsumableCheck(Where, Full)
                 numElixirs = 0
                 for i, v in ipairs(vars.Elixirs) do
                     local spellName, spellIcon, spellId = unpack(v)
-                    if UnitBuff(unit.unitid, spellId) then
-                        numElixirs = numElixirs + 1
+
+                    --check if a buff is from this addon
+                    if spellId<spellidmin then
+                        if UnitBuff(unit.unitid, spellId) then
+                            numElixirs = numElixirs + 1
+                        end
                     end
                 end
                 if numElixirs == 1 then
@@ -986,14 +999,19 @@ function addon:ConsumableCheck(Where, Full)
         self:SendMessageList(L["No Intellect"], MissingIntBuffList, Where)
         self:SendMessageList(L["No Attack Power"], MissingAPBuffList, Where)
         self:SendMessageList(L["No Stamina"], MissingStaBuffList, Where)
-        self:SendMessageList(L["Missing All Buffs"], MissingAllCombatBuffList, Where)
+        --self:SendMessageList(L["Missing All Buffs"], MissingAllCombatBuffList, Where)
     end
 
     --check for missing food
     if self.db.profile.CheckFood then
         for i, v in ipairs(vars.Foodbuffs) do
             local spellName, spellIcon, spellId = unpack(v)
-            local t = self:BuffPlayerList(spellId, MissingFoodList)
+
+            --check if a buff is from this addon
+            if spellId>spellidmin then
+                self:BuffPlayerList(spellId, MissingFoodList)
+            end
+
         end
         self:SendMessageList(L["No Food Buff"], MissingFoodList, Where)
     end
@@ -1364,6 +1382,10 @@ local playersrcmask = bit.bor(bit.bor(COMBATLOG_OBJECT_TYPE_PLAYER,
     COMBATLOG_OBJECT_TYPE_PET),
 COMBATLOG_OBJECT_TYPE_GUARDIAN) -- totems
 
+local wasRemoved = false
+local savedRemoval = 202849 --Dummy spell
+local savedDST = nil
+
 local CombatLogGetCurrentEventInfo = CombatLogGetCurrentEventInfo
 function addon:COMBAT_LOG_EVENT_UNFILTERED()
     local timestamp, subevent, hideCaster,
@@ -1402,10 +1424,26 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED()
     -- debug stuff here
     -- and spellname == "Taunt"
     if addon.debug then
+        --[[
         print((spellname or "nil")..":"..(spellID or "nil")..":"..(subevent or "nil")..":"..
             (srcname or "nil")..":"..(srcGUID or "nil")..":"..(srcflags or "nil")..":"..(srcRaidFlags or "nil")..":"..
             (dstname or "nil")..":"..(dstGUID or "nil")..":"..(dstflags or "nil")..":"..(dstRaidFlags or "nil")..":"..
         "is_playersrc:"..((is_playersrc and "true") or "false")..":"..(extraspellID or "nil"))
+        ]]--
+    end
+
+    -- SPELL_AURA_REMOVED fixed (I hope so)
+    if wasRemoved then
+        wasRemoved = false
+        local isDST = (savedDST == DST)
+
+        if isDST then
+            spam = L["%s on %s broken by %s's %s"]:format(SPELL(savedRemoval), DST, SRC, SPELL(spellID))
+            sendspam(spam, nil, srcname)
+        else
+            spam = L["%s on %s broken for unknown reasons. (Destination was %s not %s)"]:format(SPELL(savedRemoval), savedDST, DST, savedDST)
+            sendspam(spam, nil, nil)
+        end
     end
 
     if subevent == "SPELL_SUMMON" and is_playersrc then
@@ -1562,7 +1600,13 @@ function addon:COMBAT_LOG_EVENT_UNFILTERED()
              elseif expired then
                  spam = (L["%s on %s expired"]):format(SPELL(spellID), DST)
              elseif subevent == "SPELL_AURA_REMOVED" then
-                 spam = (L["%s on %s removed by %s"]):format(SPELL(spellID), DST, SRC)
+                 --saving data for next combat log entry. maybe we're getting the right one
+                 wasRemoved = true
+                 savedRemoval = spellID
+                 savedDST = DST
+                 --spam = (L["%s on %s removed for unknown reasons. (%s)"]):format(SPELL(spellID), DST, SRC)
+             else
+                 print("What happened?")
              end
 
                 -- Should we throttle the spam?
