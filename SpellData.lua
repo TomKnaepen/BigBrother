@@ -122,9 +122,21 @@ vars.SpellData.VantusRunes = {
 	269407, -- Zek'vohj
 	269408, -- Fetid Devourer
 	269409, -- Blood of G'huun
-    269411, -- Zul
+  269411, -- Zul
 	269412, -- Mythrax
 	269413, -- G'huun
+		-- Antorus, the Burning Throne
+	250153, -- Garothi Worldbreaker
+	250156, -- Felhounds of Sargeras
+	250167, -- Antoran High Command
+	250160, -- Portal Keeper Hasabel
+	250150, -- Eonar the Lifebinder
+	250158, -- Imonar the Soulhunter
+	250148, -- Kin'garoth
+	250165, -- Varimathras
+	250163, -- The Coven of Shivarra
+	250144, -- Aggramar
+	250146, -- Argus the Unmaker
 }
 
 vars.SpellData.flasks = {
