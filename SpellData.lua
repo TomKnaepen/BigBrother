@@ -14,30 +14,33 @@ vars.SpellData.foods = {
 	-- Legion
 	--225600, -- Versatility
 	-- BFA
-	257410, -- Critical Strike 16
 	257408, -- Critical Strike 53
-	
-	257422, -- Versatility 12
-	257424, -- Versatility 16
-	
-	259454, -- Agility 22
-	259448, -- Agility 75
-	
-	259452, -- Strength 12
-	259456, -- Strength 22
-	
-	259449, -- Intellect 75
-	259455, -- Intellect 100
+	257410, -- Critical Strike 70
 
-	-- 262571, -- Stamina 11 - 15 min buff (?)
-	259453, -- Stamina 26
-	259457, -- Stamina 150
-	
-	257418, -- Mastery 12
+	257413, -- Haste 53
+	257415, -- Haste 70
+
+	257418, -- Mastery 53
 	257420, -- Mastery 70
 	
-	257415, -- Haste 16
-	257413, -- Haste 53
+	257422, -- Versatility 53
+	257424, -- Versatility 70
+	
+	259448, -- Agility 75
+	290467, -- Agility 85
+	259454, -- Agility 100
+
+	259449, -- Intellect 75
+	290468, -- Intellect 85
+	259455, -- Intellect 100
+	
+	259452, -- Strength 75
+	290469, -- Strength 85
+	259456, -- Strength 100
+		
+	-- 262571, -- Stamina 11 - 15 min buff (?)
+	259453, -- Stamina 113
+	259457, -- Stamina 150
 	
 	-- 267948, -- Warfront shit
 	-- 267949, -- Warfront shit
