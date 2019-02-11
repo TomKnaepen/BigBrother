@@ -119,16 +119,7 @@ vars.SpellData.VantusRunes = {
 	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
 	237820, -- Fallen Avatar
 	237825, -- Kil'jaeden
-	-- Uldir
-	269276, -- Taloc
-	269405, -- MOTHER
-	269407, -- Zek'vohj
-	269408, -- Fetid Devourer
-	269409, -- Blood of G'huun
-  269411, -- Zul
-	269412, -- Mythrax
-	269413, -- G'huun
-		-- Antorus, the Burning Throne
+	-- Antorus, the Burning Throne
 	250153, -- Garothi Worldbreaker
 	250156, -- Felhounds of Sargeras
 	250167, -- Antoran High Command
@@ -140,6 +131,25 @@ vars.SpellData.VantusRunes = {
 	250163, -- The Coven of Shivarra
 	250144, -- Aggramar
 	250146, -- Argus the Unmaker
+	-- Uldir
+	269276, -- Taloc
+	269405, -- MOTHER
+	269407, -- Zek'vohj
+	269408, -- Fetid Devourer
+	269409, -- Blood of G'huun
+  	269411, -- Zul
+	269412, -- Mythrax
+	269413, -- G'huun
+	-- Battle of Dazar'alor
+	285535, -- Champion of the Light
+	285536, -- Grong
+	285537, -- Jadefire Masters
+	285538, -- Opulence
+	285539, -- Conclave of the Chosen
+	285540, -- King Rastakhan
+	285541, -- High Tinker Mekkatorque
+	285542, -- Stormwall Blockade
+	285543, -- Lady Jaina Proudmoore	
 }
 
 vars.SpellData.flasks = {
