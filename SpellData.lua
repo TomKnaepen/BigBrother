@@ -14,30 +14,33 @@ vars.SpellData.foods = {
 	-- Legion
 	--225600, -- Versatility
 	-- BFA
-	257410, -- Critical Strike 16
 	257408, -- Critical Strike 53
-	
-	257422, -- Versatility 12
-	257424, -- Versatility 16
-	
-	259454, -- Agility 22
-	259448, -- Agility 75
-	
-	259452, -- Strength 12
-	259456, -- Strength 22
-	
-	259449, -- Intellect 75
-	259455, -- Intellect 100
+	257410, -- Critical Strike 70
 
-	-- 262571, -- Stamina 11 - 15 min buff (?)
-	259453, -- Stamina 26
-	259457, -- Stamina 150
-	
-	257418, -- Mastery 12
+	257413, -- Haste 53
+	257415, -- Haste 70
+
+	257418, -- Mastery 53
 	257420, -- Mastery 70
 	
-	257415, -- Haste 16
-	257413, -- Haste 53
+	257422, -- Versatility 53
+	257424, -- Versatility 70
+	
+	259448, -- Agility 75
+	290467, -- Agility 85
+	259454, -- Agility 100
+
+	259449, -- Intellect 75
+	290468, -- Intellect 85
+	259455, -- Intellect 100
+	
+	259452, -- Strength 75
+	290469, -- Strength 85
+	259456, -- Strength 100
+		
+	-- 262571, -- Stamina 11 - 15 min buff (?)
+	259453, -- Stamina 113
+	259457, -- Stamina 150
 	
 	-- 267948, -- Warfront shit
 	-- 267949, -- Warfront shit
@@ -116,16 +119,7 @@ vars.SpellData.VantusRunes = {
 	237823, -- Fel Titan (Maiden of Vigilance maybe. Fixed id will be asap)
 	237820, -- Fallen Avatar
 	237825, -- Kil'jaeden
-	-- Uldir
-	269276, -- Taloc
-	269405, -- MOTHER
-	269407, -- Zek'vohj
-	269408, -- Fetid Devourer
-	269409, -- Blood of G'huun
-  269411, -- Zul
-	269412, -- Mythrax
-	269413, -- G'huun
-		-- Antorus, the Burning Throne
+	-- Antorus, the Burning Throne
 	250153, -- Garothi Worldbreaker
 	250156, -- Felhounds of Sargeras
 	250167, -- Antoran High Command
@@ -137,6 +131,25 @@ vars.SpellData.VantusRunes = {
 	250163, -- The Coven of Shivarra
 	250144, -- Aggramar
 	250146, -- Argus the Unmaker
+	-- Uldir
+	269276, -- Taloc
+	269405, -- MOTHER
+	269407, -- Zek'vohj
+	269408, -- Fetid Devourer
+	269409, -- Blood of G'huun
+  	269411, -- Zul
+	269412, -- Mythrax
+	269413, -- G'huun
+	-- Battle of Dazar'alor
+	285535, -- Champion of the Light
+	285536, -- Grong
+	285537, -- Jadefire Masters
+	285538, -- Opulence
+	285539, -- Conclave of the Chosen
+	285540, -- King Rastakhan
+	285541, -- High Tinker Mekkatorque
+	285542, -- Stormwall Blockade
+	285543, -- Lady Jaina Proudmoore	
 }
 
 vars.SpellData.flasks = {
