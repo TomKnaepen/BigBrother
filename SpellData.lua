@@ -16,15 +16,19 @@ vars.SpellData.foods = {
 	-- BFA
 	257408, -- Critical Strike 53
 	257410, -- Critical Strike 70
+	297039, -- Critical Strike 93
 
 	257413, -- Haste 53
 	257415, -- Haste 70
-
+	297034, -- Haste 93
+	
 	257418, -- Mastery 53
 	257420, -- Mastery 70
+	297035, -- Mastery 93
 	
 	257422, -- Versatility 53
 	257424, -- Versatility 70
+	297037, -- Versatility 93
 	
 	259448, -- Agility 75
 	290467, -- Agility 85
@@ -41,6 +45,7 @@ vars.SpellData.foods = {
 	-- 262571, -- Stamina 11 - 15 min buff (?)
 	259453, -- Stamina 113
 	259457, -- Stamina 150
+	297040, -- Stamina 198
 	
 	-- 267948, -- Warfront shit
 	-- 267949, -- Warfront shit
@@ -149,7 +154,16 @@ vars.SpellData.VantusRunes = {
 	285540, -- King Rastakhan
 	285541, -- High Tinker Mekkatorque
 	285542, -- Stormwall Blockade
-	285543, -- Lady Jaina Proudmoore	
+	285543, -- Lady Jaina Proudmoore
+	-- The Eternal Palace
+	298622, -- Abyssal Commander Sivara
+	298642, -- Blackwater Behemoth
+	298640, -- Radiance of Azshara
+	298643, -- Lady Ashvane
+	298644, -- Orgozoa
+	298645, -- Queen's Court
+	298646, -- Za'qul
+	302914, -- Queen Azshara
 }
 
 vars.SpellData.flasks = {
@@ -223,6 +237,10 @@ vars.SpellData.flasks = {
 	251838, -- Flask of the Vast Horizon (Sta)
 	251837, -- Flask of the Endless Fathoms (Int)
 	251836, -- Flask of the Currents (Agi)
+	298841, -- Greater Flask of the Undertow (Str)
+	298839, -- Greater Flask of the Vast Horizon (Sta)
+	298837, -- Greater Flask of Endless Fathoms (Int)
+	298836, -- Greater Flask of the Currents (Agi)
 }
 
 vars.SpellData.elixirGuardian = {
