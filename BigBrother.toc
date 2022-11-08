@@ -13,8 +13,8 @@
 ## X-ReleaseDate: 2018-09-15
 ## X-Revision: $Revision: 500 $
 ## X-Category: Raid
-## X-Embeds: Ace2, RosterLib, FuBarPlugin-2.0
-## OptionalDeps: Ace2, RosterLib, FuBarPlugin-2.0, FuBar2Broker
+## X-Embeds: Ace2, RosterLib
+## OptionalDeps: Ace2, RosterLib, FuBar2Broker
 ## SavedVariables: BigBrotherDB
 ## LoadManagers: AddonLoader
 ## X-LoadOn-Group: true

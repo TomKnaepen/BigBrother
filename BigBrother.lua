@@ -13,11 +13,7 @@ Additional thanks:
 ]]
 local addonName, vars = ...
 local L = vars.L
-if AceLibrary:HasInstance("FuBarPlugin-2.0") then
-    BigBrother = AceLibrary("AceAddon-2.0"):new("AceConsole-2.0", "AceDB-2.0", "AceEvent-2.0", "FuBarPlugin-2.0")
-else
-    BigBrother = AceLibrary("AceAddon-2.0"):new("AceConsole-2.0", "AceDB-2.0", "AceEvent-2.0")
-end
+BigBrother = AceLibrary("AceAddon-2.0"):new("AceConsole-2.0", "AceDB-2.0", "AceEvent-2.0")
 
 -- Change here and in BigBrother.lua
 local spellidmin = 250000 -- minimum allowed spellid in this addon (bfa: 250000)
@@ -79,7 +75,7 @@ local deathgrip = GetSpellInfo(49576)
 local color = "|cffff8040%s|r"
 local outdoor_bg = {}
 
--- FuBar stuff
+-- FuBar stuff - should be unused now but I'm not ready to mess with it yet
 addon.name = "BigBrother"
 addon.hasIcon = true
 addon.hasNoColor = true
