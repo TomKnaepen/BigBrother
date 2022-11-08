@@ -73,7 +73,6 @@ vars.SpellData.foods = {
     396092, -- Grand Banquet
 }
 
--- TODO what does this mean
 vars.SpellData.CombatBuffSplit = {
     intellect = {
         1459, -- Arcane Intellect
@@ -98,6 +97,8 @@ vars.SpellData.CombatBuffs = {
 
     6673, -- Battle Shout
     264761, -- Attack Power 8%
+
+    -- TODO motw, blessing of the bronze (?)
 }
 
 vars.SpellData.AugmentRunes = {
@@ -108,6 +109,7 @@ vars.SpellData.AugmentRunes = {
     224001, -- Defiled Augment Rune (Legion)
     -- BFA
     270058, -- Battle-Scarred Augment Rune (BFA)
+
     -- Shadowlands
     -- TODO
 }
@@ -271,6 +273,8 @@ vars.SpellData.flasks = {
     298839, -- Greater Flask of the Vast Horizon (Sta)
     298837, -- Greater Flask of Endless Fathoms (Int)
     298836, -- Greater Flask of the Currents (Agi)
+
+    -- TODO SL/DF flasks/phials
 }
 
 vars.SpellData.elixirGuardian = {
@@ -373,6 +377,7 @@ vars.SpellData.ccspells = {
     217832, -- Imprison (Demon Hunter)
 }
 
+-- TODO where do i add all the new cc
 -- debuffs that can be applied to a cc target without breaking it
 vars.SpellData.ccsafeauras = {
     5484, -- Howl of Terror
@@ -401,7 +406,13 @@ vars.SpellData.brezSpells = {
     20707, -- Soulstone Applied (Warlock) - There is no combat log event for using a soulstone :-(
     95750, -- Soulstone Resurrection (Warlock) - this is the SPELL_RESURRECT
     61999, -- Raise Ally (DK)
-    -- TODO add paladin brez
+    391054, -- Intercession (Paladin)
+
+    -- Engineering
+    348477, -- Disposable Spectrophasic Reanimator (SL)
+    -- TODO figure out which of the 2 it is
+    385403, -- Arclight Vital Correctors (DF)
+    393795, -- Arclight Vital Correctors (DF)
 }
 
 vars.SpellData.rezSpells = {
@@ -410,6 +421,7 @@ vars.SpellData.rezSpells = {
     50769, -- Revive (Druid)
     2006, -- Resurrection (Priest)
     115178, -- Resuscitate (Monk)
+    361227, -- Return (Evoker)
     54732, -- Defibrillate (Engineer)
     -- 83968, -- Mass Resurrection
     212036, -- Mass Resurrection (Holy, Discipline Priest)
@@ -417,8 +429,7 @@ vars.SpellData.rezSpells = {
     212051, -- Reawaken (Mistweaver Monk)
     212056, -- Absolution (Holy Paladin)
     212048, -- Ancestral Vision (Restoration Shaman)
-    -- TODO add SL and DF engi rezzes
-    -- TODO add evoker rez + mass rez
+    361178, -- Mass Return (Preservation Evoker)
 }
 
 vars.SpellData.tauntSpells = {
@@ -427,9 +438,10 @@ vars.SpellData.tauntSpells = {
     62124, -- Hand of Reckoning (Paladin)
     6795, -- Growl (Druid)
     56222, -- Dark Command (Death Knight)
-    49576, -- Death Grip (Death Knight)
+    51399, -- Death Grip (Blood Death Knight)
     20736, -- Distracting Shot (Hunter)
     116189, -- Provoke (Monk)
+    115546, -- Provoke (Monk)
     17735, -- Suffering (Warlock Voidwalker)
     171014, -- Seethe (Warlock Abyssal)
     2649, -- Growl (Hunter Pet)
@@ -439,11 +451,12 @@ vars.SpellData.tauntSpells = {
 
 vars.SpellData.aoetauntSpells = {
     -- TODO enable warrior/druid aoe taunts
-    -- TODO add paladin bubble taunt
-    -- 1161,  -- Challenging Shout (Warrior)
+    1161,  -- Challenging Shout (Warrior)
+    386071,  -- Disrupting Shout (Warrior)
     --31789, -- Righteous Defense (Paladin)
+    204079, -- Final Stand (Paladin)
     -- 5209,  -- Challenging Roar (Druid)
-    82407, -- Painful Shock (Engineering Malfunction)
+    -- 82407, -- Painful Shock (Engineering Malfunction)
     36213, -- Angered Earth (Shaman Earth Elemental), unfortunately no visible debuff
     -- 59671, -- Challenging Howl (Warlock)  3.x
 }
